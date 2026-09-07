@@ -19,6 +19,7 @@ RemotePrint *RemotePrint::s_instance = NULL;
 uint8_t RemotePrint::logLevel        = 0;
 bool    RemotePrint::serialEnabled   = false;
 bool    RemotePrint::telnetEnabled   = false;
+String  RemotePrint::telnetPassword  = "";
 
 RemotePrint * RemotePrint::instance() {
   if (!s_instance) {
@@ -31,6 +32,7 @@ RemotePrint * RemotePrint::instance() {
     #ifdef TELNET_PASSWORD
     telnetPassword = TELNET_PASSWORD;
     #endif // ifdef TELNET_PASSWORD
+    RemotePrint::telnetPassword = telnetPassword;
 
     #ifndef LOG_OUTPUT
     # define LOG_OUTPUT "SERIAL_TELNET"
@@ -72,6 +74,10 @@ void RemotePrint::handle() {
   if (RemotePrint::telnetEnabled) {
     Debug.handle();
   }
+}
+
+const char *RemotePrint::getTelnetPassword() {
+  return RemotePrint::telnetPassword.c_str();
 }
 
 void RemotePrint::print(String args, uint8_t _logLevel) {

@@ -19,6 +19,7 @@ public:
   void                println(String  args,
                               uint8_t debugLevel = RemoteDebug::INFO);
   void                handle();
+  const char         *getTelnetPassword();
   static RemotePrint* instance();
 
 private:
@@ -27,6 +28,7 @@ private:
   static uint8_t logLevel;
   static bool serialEnabled;
   static bool telnetEnabled;
+  static String telnetPassword;
   RemoteDebug Debug;
   bool isActive(uint8_t _logLevel);
 };
