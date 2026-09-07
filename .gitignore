@@ -1,4 +1,31 @@
-.pioenvs
-.piolibdeps
+# PlatformIO
+.pio/
+.pioenvs/
+.piolibdeps/
+.pio/build/
+.pio/libdeps/
+.check_tool_versions
 .clang_complete
 .gcc-flags.json
+
+# VS Code / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Compiled artifacts
+*.bin
+*.elf
+*.hex
+*.a
+*.o
+*.d
+*.map
+*.lst
+*.log
